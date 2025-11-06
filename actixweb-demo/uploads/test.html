@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .conic-gra {
+        width: 200px;
+        height: 200px;
+
+        border-radius: 100px;
+
+        border: conic-gradient(#ff0101, #c3ff00, #01a6ff, #8c00ff) 40px solid;
+        background-color: transparent;
+
+        /* background: conic-gradient(#ff0101, #c3ff00, #01a6ff, #8c00ff); */
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+      }
+      /* .conic-gra .inner-cir {
+        width: 100px;
+        height: 100px;
+
+        border-radius: 100px;
+
+        background: #fff;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="conic-gra">
+     
+    </div>
+    <script>
+      const container = document.querySelector('.conic-gra')
+      const fragment = document.createDocumentFragment()
+      
+
+      function callback(IdleDeadline) {
+        let i = 0
+        doWork(IdleDeadline, i)
+      }
+      
+
+      function doWork(IdleDeadline, i) {
+        while(i < 1000000 && IdleDeadline.timeRemaining() > 1) {
+          const el = document.createElement('div')
+          el.innerText = '测试' + i
+          container.appendChild(el)
+          i++
+        }
+        function cb(IdleDeadline) {
+          doWork(IdleDeadline, i)
+        }
+        window.requestIdleCallback(cb)
+      }
+
+      window.requestIdleCallback(callback)
+
+      
+      // container.appendChild(fragment)
+    </script>
+  </body>
+</html>

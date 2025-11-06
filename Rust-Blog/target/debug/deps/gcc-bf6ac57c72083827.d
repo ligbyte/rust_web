@@ -1,0 +1,12 @@
+F:\rust\rust_demo\Rust-Blog\target\debug\deps\gcc-bf6ac57c72083827.d: C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\lib.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\registry.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\winapi.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\com.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\setup_config.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\windows_registry.rs
+
+F:\rust\rust_demo\Rust-Blog\target\debug\deps\libgcc-bf6ac57c72083827.rlib: C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\lib.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\registry.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\winapi.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\com.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\setup_config.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\windows_registry.rs
+
+F:\rust\rust_demo\Rust-Blog\target\debug\deps\libgcc-bf6ac57c72083827.rmeta: C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\lib.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\registry.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\winapi.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\com.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\setup_config.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\windows_registry.rs
+
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\lib.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\registry.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\winapi.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\com.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\setup_config.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\gcc-0.3.55\src\windows_registry.rs:

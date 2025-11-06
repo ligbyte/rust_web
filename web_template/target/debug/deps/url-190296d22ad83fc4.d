@@ -1,0 +1,11 @@
+F:\rust\rust_demo\Actix-Web-Server-Demo\web_template\target\debug\deps\url-190296d22ad83fc4.d: C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\lib.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\host.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\origin.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\parser.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\path_segments.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\slicing.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\quirks.rs
+
+F:\rust\rust_demo\Actix-Web-Server-Demo\web_template\target\debug\deps\liburl-190296d22ad83fc4.rmeta: C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\lib.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\host.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\origin.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\parser.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\path_segments.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\slicing.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\quirks.rs
+
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\lib.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\host.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\origin.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\parser.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\path_segments.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\slicing.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\url-2.5.7\src\quirks.rs:

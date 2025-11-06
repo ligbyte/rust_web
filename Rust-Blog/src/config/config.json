@@ -1,0 +1,14 @@
+{
+  "website": {
+    "address": "127.0.0.1",
+    "port": "8080",
+    "workers": "4"
+  },
+  "mysql": {
+    "username": "Mysel用户名",
+    "password": "MySQL密码",
+    "address": "MySQL地址",
+    "port": "MySQL端口",
+    "dbname": "数据库名"
+  }
+}
