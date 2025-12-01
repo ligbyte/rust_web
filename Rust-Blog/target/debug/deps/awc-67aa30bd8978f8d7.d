@@ -1,0 +1,14 @@
+F:\rust\rust_web\Rust-Blog\target\debug\deps\awc-67aa30bd8978f8d7.d: C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\lib.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\builder.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\connect.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\error.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\frozen.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\request.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\response.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\sender.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\test.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\ws.rs
+
+F:\rust\rust_web\Rust-Blog\target\debug\deps\libawc-67aa30bd8978f8d7.rmeta: C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\lib.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\builder.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\connect.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\error.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\frozen.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\request.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\response.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\sender.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\test.rs C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\ws.rs
+
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\lib.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\builder.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\connect.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\error.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\frozen.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\request.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\response.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\sender.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\test.rs:
+C:\Users\dev\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\awc-2.0.3\src\ws.rs:

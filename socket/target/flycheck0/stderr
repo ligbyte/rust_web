@@ -1,0 +1,119 @@
+warning: virtual workspace defaulting to `resolver = "1"` despite one or more workspace members being on edition 2021 which implies `resolver = "2"`
+note: to keep the current resolver, specify `workspace.resolver = "1"` in the workspace root's manifest
+note: to use the edition 2021 resolver, specify `workspace.resolver = "2"` in the workspace root's manifest
+note: for more details see https://doc.rust-lang.org/cargo/reference/resolver.html#resolver-versions
+   0.031354700s  INFO prepare_target{force=false package_id=client v0.1.0 (F:\rust\rust_web\socket\client) target="client"}: cargo::core::compiler::fingerprint: fingerprint error for client v0.1.0 (F:\rust\rust_web\socket\client)/Check { test: false }/TargetInner { name: "client", doc: true, ..: with_path("F:\\rust\\rust_web\\socket\\client\\src\\main.rs", Edition2021) }
+   0.031432700s  INFO prepare_target{force=false package_id=client v0.1.0 (F:\rust\rust_web\socket\client) target="client"}: cargo::core::compiler::fingerprint:     err: failed to read `F:\rust\rust_web\socket\target\debug\.fingerprint\client-caf157dd065fdf76\bin-client`
+
+Caused by:
+    系统找不到指定的文件。 (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_libgit2_prerelease
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: git_midx_writer_dump
+  17: git_filter_source_repo
+  18: git_midx_writer_dump
+  19: BaseThreadInitThunk
+  20: RtlUserThreadStart
+   0.047554400s  INFO prepare_target{force=false package_id=client v0.1.0 (F:\rust\rust_web\socket\client) target="client"}: cargo::core::compiler::fingerprint: fingerprint error for client v0.1.0 (F:\rust\rust_web\socket\client)/Check { test: true }/TargetInner { name: "client", doc: true, ..: with_path("F:\\rust\\rust_web\\socket\\client\\src\\main.rs", Edition2021) }
+   0.047577500s  INFO prepare_target{force=false package_id=client v0.1.0 (F:\rust\rust_web\socket\client) target="client"}: cargo::core::compiler::fingerprint:     err: failed to read `F:\rust\rust_web\socket\target\debug\.fingerprint\client-760364723cff0ec3\test-bin-client`
+
+Caused by:
+    系统找不到指定的文件。 (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_libgit2_prerelease
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: git_midx_writer_dump
+  17: git_filter_source_repo
+  18: git_midx_writer_dump
+  19: BaseThreadInitThunk
+  20: RtlUserThreadStart
+   0.048219400s  INFO prepare_target{force=false package_id=server v0.1.0 (F:\rust\rust_web\socket\server) target="server"}: cargo::core::compiler::fingerprint: fingerprint error for server v0.1.0 (F:\rust\rust_web\socket\server)/Check { test: false }/TargetInner { name: "server", doc: true, ..: with_path("F:\\rust\\rust_web\\socket\\server\\src\\main.rs", Edition2021) }
+   0.048236900s  INFO prepare_target{force=false package_id=server v0.1.0 (F:\rust\rust_web\socket\server) target="server"}: cargo::core::compiler::fingerprint:     err: failed to read `F:\rust\rust_web\socket\target\debug\.fingerprint\server-81eb05829fbddbc2\bin-server`
+
+Caused by:
+    系统找不到指定的文件。 (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_libgit2_prerelease
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: git_midx_writer_dump
+  17: git_filter_source_repo
+  18: git_midx_writer_dump
+  19: BaseThreadInitThunk
+  20: RtlUserThreadStart
+   0.049393300s  INFO prepare_target{force=false package_id=server v0.1.0 (F:\rust\rust_web\socket\server) target="server"}: cargo::core::compiler::fingerprint: fingerprint error for server v0.1.0 (F:\rust\rust_web\socket\server)/Check { test: true }/TargetInner { name: "server", doc: true, ..: with_path("F:\\rust\\rust_web\\socket\\server\\src\\main.rs", Edition2021) }
+   0.049419700s  INFO prepare_target{force=false package_id=server v0.1.0 (F:\rust\rust_web\socket\server) target="server"}: cargo::core::compiler::fingerprint:     err: failed to read `F:\rust\rust_web\socket\target\debug\.fingerprint\server-ade95dedf6f4b4a7\test-bin-server`
+
+Caused by:
+    系统找不到指定的文件。 (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_libgit2_prerelease
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: git_midx_writer_dump
+  17: git_filter_source_repo
+  18: git_midx_writer_dump
+  19: BaseThreadInitThunk
+  20: RtlUserThreadStart
+    Checking server v0.1.0 (F:\rust\rust_web\socket\server)
+    Checking client v0.1.0 (F:\rust\rust_web\socket\client)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.50s

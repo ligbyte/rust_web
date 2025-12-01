@@ -1,4 +1,5 @@
 [workspace]
+default-run = "demo"
 members = [
   "hello-world",
   "demo",
