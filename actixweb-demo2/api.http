@@ -1,90 +1,62 @@
 ### Base URL constant
 @base_url = http://127.0.0.1:8080
 
-### 接口：greety
-GET {{base_url}}/user/123456/lime HTTP/1.1
+### 接口：tasks
+GET {{base_url}}/tasks HTTP/1.1
 Content-Type: application/json
 
 
-### 接口：login
-POST {{base_url}}/login HTTP/1.1
+### 接口：tasks
+POST {{base_url}}/tasks HTTP/1.1
 Content-Type: application/json
 
 {
-    "username": "jun",
+    "id": 3,
+    "name": "lime",
+    "completed": false
+}
+
+
+### 接口：tasks
+PUT  {{base_url}}/tasks HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 3,
+    "name": "lijunjun",
+    "completed": false
+}
+
+
+
+### 接口：/tasks/{id}
+GET {{base_url}}/tasks/3 HTTP/1.1
+Content-Type: application/json
+
+
+### 接口：/tasks/{id}
+DELETE  {{base_url}}/tasks/3 HTTP/1.1
+Content-Type: application/json
+
+
+### 接口： register
+POST {{base_url}}/register
+Content-Type: application/json
+
+{
+    "id": 13,
+    "username": "lilime",
     "password": "123456"
 }
 
 
-### 接口：get_user_name
-GET {{base_url}}/user/name?username="lijunjun" HTTP/1.1
-Content-Type: application/json
 
-
-
-### 模拟表单提交接口： index
-POST {{base_url}}/url-encoded-form
-Content-Type: application/x-www-form-urlencoded
-
-username=张三&age=20
-
-
-### 接口：upload_mix   见api_upload_mix.html
-
-POST {{base_url}}/upload_with_fields
-Content-Type: multipart/form-data; boundary=MyBoundary123
-
---MyBoundary123
-Content-Disposition: form-data; name="username"
-
-张三
---MyBoundary123
-Content-Disposition: form-data; name="age"
-
-25
---MyBoundary123
-Content-Disposition: form-data; name="file"; filename="database.db"
-Content-Type: text/plain
-
-< F:\database.db
---MyBoundary123--
-
-
-
-### 文件上传测试
-POST {{base_url}}/upload_multi_extract
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-
-------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="username"
-
-JohnDoe
-------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="age"
-
-25
-------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="file"; filename="cargo.png"
-Content-Type: text/plain
-
-< F:\cargo.png
-------WebKitFormBoundary7MA4YWxkTrZu0gW--
-
-
-
-### 测试 /error 接口（预期返回错误）
-GET {{base_url}}/error
-Accept: application/json
-
-
-###
-PUT {{base_url}}/todolist/entries/1 HTTP/1.1
+### 接口： login
+POST {{base_url}}/login
 Content-Type: application/json
 
 {
-    "title": "update entrie"
+    "id": 13,
+    "username": "lilime",
+    "password": "123456"
 }
-
-###
-DELETE  {{base_url}}/todolist/entries/10 HTTP/1.1
-Content-Type: application/json
