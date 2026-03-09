@@ -7,6 +7,16 @@ struct FormData {
 }
 
 /**
+<form action="/api/submit" method="post">
+  <!-- 表单默认使用此编码 -->
+  <input name="username" value="张三">
+  <input name="age" value="20">
+  <button>提交</button>
+</form>
+
+*/
+
+/**
  * web::Form<T> 对应前端 application/x-www-form-urlencoded
  */
 #[post("/url-encoded-form")]

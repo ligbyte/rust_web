@@ -1,4 +1,5 @@
 use actix_web::{web, App, HttpServer, HttpResponse};
+use actix_cors::Cors;
 
 mod api;
 use api::greety;
@@ -13,6 +14,13 @@ use api::error_handle;
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
+            .wrap(
+                Cors::default()
+                .allow_any_origin()  // 允许所有来源（仅用于开发环境）
+                .allow_any_method()
+                .allow_any_header()
+                .max_age(3600),
+            )
             .service(greety)
             .service(login)
             .service(get_user_name)

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>混合表单上传测试</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .description {
+            color: #7f8c8d;
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #3498db;
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input[type="text"], input[type="number"], input[type="url"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus, input[type="number"]:focus, input[type="url"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        .file-upload-area {
+            border: 2px dashed #bdc3c7;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+        }
+        
+        .file-upload-area:hover, .file-upload-area.highlight {
+            border-color: #3498db;
+            background-color: #e8f4fc;
+        }
+        
+        .file-upload-icon {
+            font-size: 48px;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        
+        .file-info {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f1f8ff;
+            border-radius: 6px;
+            font-size: 14px;
+            text-align: left;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        #submitBtn {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        #submitBtn:hover:not(:disabled) {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        #resetBtn {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+        
+        #resetBtn:hover {
+            background-color: #d5dbdb;
+        }
+        
+        #testConnectionBtn {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        #testConnectionBtn:hover:not(:disabled) {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        
+        .result-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .result-content {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        
+        .progress-container {
+            height: 8px;
+            background-color: #ecf0f1;
+            border-radius: 4px;
+            margin-top: 10px;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: #2ecc71;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .success {
+            color: #27ae60;
+        }
+        
+        .error {
+            color: #e74c3c;
+        }
+        
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #95a5a6;
+            font-size: 14px;
+        }
+        
+        .endpoint-info {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 13px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .server-status {
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .server-status.connecting {
+            background-color: #fff3cd;
+            color: #856404;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .server-status.connected {
+            background-color: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+        
+        .server-status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .status-icon {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .buttons, .form-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>混合表单上传测试</h1>
+            <p class="description">测试包含文本字段和文件上传的Rust接口。填写用户信息并选择文件进行测试。</p>
+        </header>
+        
+        <div class="endpoint-info">
+            <strong>接口端点：</strong>POST http://127.0.0.1:8080/upload_with_fields
+        </div>
+        
+        <div class="server-status" id="serverStatus">
+            <span class="status-icon">⏳</span>
+            <span id="statusText">正在检查服务器连接...</span>
+        </div>
+        
+        <div class="form-section">
+            <h2>服务器配置</h2>
+            <div class="form-group">
+                <label for="serverUrl">服务器地址：</label>
+                <input type="url" id="serverUrl" placeholder="http://127.0.0.1:8080" value="http://127.0.0.1:8080">
+            </div>
+            <button id="testConnectionBtn">测试服务器连接</button>
+        </div>
+        
+        <div class="form-section">
+            <h2>用户信息</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="username">用户名：</label>
+                    <input type="text" id="username" placeholder="请输入用户名" value="测试用户">
+                </div>
+                <div class="form-group">
+                    <label for="age">年龄：</label>
+                    <input type="number" id="age" placeholder="请输入年龄" min="1" max="120" value="25">
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <h2>文件上传</h2>
+            <div class="file-upload-area" id="fileDropArea">
+                <div class="file-upload-icon">📁</div>
+                <p><strong>点击选择文件或拖拽文件到此处</strong></p>
+                <p>支持图片、文档、压缩包等各种文件类型</p>
+                <input type="file" id="fileInput" style="display: none;">
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <p>已选择文件: <span id="fileName"></span></p>
+                    <p>文件大小: <span id="fileSize"></span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <div class="buttons">
+            <button id="submitBtn">上传数据</button>
+            <button id="resetBtn">重置表单</button>
+        </div>
+        
+        <div class="result-section">
+            <h2>上传结果</h2>
+            <div class="result-content" id="resultContent">
+                等待上传...
+            </div>
+        </div>
+        
+        <footer>
+            <p>接口测试工具 | Rust Actix-web 混合表单上传接口测试 | 目标服务器: 127.0.0.1:8080</p>
+        </footer>
+    </div>
+
+    <script>
+        // DOM元素
+        const serverUrlInput = document.getElementById('serverUrl');
+        const usernameInput = document.getElementById('username');
+        const ageInput = document.getElementById('age');
+        const fileInput = document.getElementById('fileInput');
+        const fileDropArea = document.getElementById('fileDropArea');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileNameSpan = document.getElementById('fileName');
+        const fileSizeSpan = document.getElementById('fileSize');
+        const submitBtn = document.getElementById('submitBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const testConnectionBtn = document.getElementById('testConnectionBtn');
+        const resultContent = document.getElementById('resultContent');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const serverStatus = document.getElementById('serverStatus');
+        const statusText = document.getElementById('statusText');
+        
+        // 当前选择的文件
+        let selectedFile = null;
+        
+        // 初始化 - 检查服务器连接
+        window.addEventListener('DOMContentLoaded', async () => {
+            updateServerStatus('connecting', '正在检查服务器连接...');
+            await testServerConnection();
+            
+            const info = `接口信息：
+- 接口路径: POST /upload_with_fields
+- 服务器地址: ${serverUrlInput.value}
+- 接收字段: username (文本), age (文本), file (文件)
+- 返回格式: JSON
+- 测试步骤:
+  1. 确保Rust服务器正在运行 (127.0.0.1:8080)
+  2. 填写用户信息
+  3. 选择要上传的文件
+  4. 点击"上传数据"按钮
+  5. 查看返回结果`;
+            showResult(info, '');
+        });
+        
+        // 点击文件拖放区域时触发文件选择
+        fileDropArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+        
+        // 文件选择变化
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+        
+        // 拖放功能
+        fileDropArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileDropArea.classList.add('highlight');
+        });
+        
+        fileDropArea.addEventListener('dragleave', () => {
+            fileDropArea.classList.remove('highlight');
+        });
+        
+        fileDropArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileDropArea.classList.remove('highlight');
+            
+            if (e.dataTransfer.files.length > 0) {
+                handleFileSelect(e.dataTransfer.files[0]);
+            }
+        });
+        
+        // 处理选择的文件
+        function handleFileSelect(file) {
+            selectedFile = file;
+            
+            // 显示文件信息
+            fileNameSpan.textContent = file.name;
+            fileSizeSpan.textContent = formatFileSize(file.size);
+            fileInfo.style.display = 'block';
+            
+            // 更新UI提示
+            fileDropArea.innerHTML = `
+                <div class="file-upload-icon">✅</div>
+                <p><strong>已选择文件</strong></p>
+                <p>${file.name} (${formatFileSize(file.size)})</p>
+                <input type="file" id="fileInput" style="display: none;">
+                <div class="file-info" id="fileInfo" style="display: block;">
+                    <p>已选择文件: <span id="fileName">${file.name}</span></p>
+                    <p>文件大小: <span id="fileSize">${formatFileSize(file.size)}</span></p>
+                </div>
+            `;
+            
+            // 重新绑定事件
+            document.getElementById('fileInput').addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    handleFileSelect(e.target.files[0]);
+                }
+            });
+        }
+        
+        // 格式化文件大小
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        // 测试服务器连接
+        testConnectionBtn.addEventListener('click', async () => {
+            await testServerConnection();
+        });
+        
+        // 测试服务器连接函数
+        async function testServerConnection() {
+            testConnectionBtn.disabled = true;
+            testConnectionBtn.textContent = '测试中...';
+            updateServerStatus('connecting', '正在连接服务器...');
+            
+            try {
+                const serverUrl = serverUrlInput.value.trim();
+                if (!serverUrl) {
+                    throw new Error('服务器地址不能为空');
+                }
+                
+                // 尝试发送一个简单的HEAD请求测试连接
+                const response = await fetch(serverUrl, { 
+                    method: 'HEAD',
+                    mode: 'cors',
+                    cache: 'no-cache'
+                });
+                
+                if (response.ok) {
+                    updateServerStatus('connected', `服务器连接成功 (${serverUrl})`);
+                } else {
+                    updateServerStatus('error', `服务器返回错误状态: ${response.status} ${response.statusText}`);
+                }
+            } catch (error) {
+                updateServerStatus('error', `服务器连接失败: ${error.message}`);
+            } finally {
+                testConnectionBtn.disabled = false;
+                testConnectionBtn.textContent = '测试服务器连接';
+            }
+        }
+        
+        // 更新服务器状态显示
+        function updateServerStatus(status, message) {
+            serverStatus.className = 'server-status';
+            const statusIcon = serverStatus.querySelector('.status-icon');
+            
+            if (status === 'connecting') {
+                serverStatus.classList.add('connecting');
+                statusIcon.textContent = '⏳';
+            } else if (status === 'connected') {
+                serverStatus.classList.add('connected');
+                statusIcon.textContent = '✅';
+            } else if (status === 'error') {
+                serverStatus.classList.add('error');
+                statusIcon.textContent = '❌';
+            }
+            
+            statusText.textContent = message;
+        }
+        
+        // 上传数据
+        submitBtn.addEventListener('click', async () => {
+            // 验证表单
+            if (!usernameInput.value.trim()) {
+                showResult('错误：请填写用户名', 'error');
+                return;
+            }
+            
+            if (!ageInput.value.trim() || parseInt(ageInput.value) <= 0) {
+                showResult('错误：请输入有效的年龄', 'error');
+                return;
+            }
+            
+            if (!selectedFile) {
+                showResult('错误：请选择要上传的文件', 'error');
+                return;
+            }
+            
+            const serverUrl = serverUrlInput.value.trim();
+            if (!serverUrl) {
+                showResult('错误：请填写服务器地址', 'error');
+                return;
+            }
+            
+            // 禁用提交按钮
+            submitBtn.disabled = true;
+            submitBtn.textContent = '上传中...';
+            
+            // 显示进度条
+            progressContainer.style.display = 'block';
+            progressBar.style.width = '0%';
+            
+            try {
+                // 创建FormData对象
+                const formData = new FormData();
+                formData.append('username', usernameInput.value.trim());
+                formData.append('age', ageInput.value.trim());
+                formData.append('file', selectedFile);
+                
+                // 模拟进度更新
+                const progressInterval = setInterval(() => {
+                    const currentWidth = parseInt(progressBar.style.width) || 0;
+                    if (currentWidth < 90) {
+                        progressBar.style.width = (currentWidth + 10) + '%';
+                    }
+                }, 200);
+                
+                // 构建完整的接口URL
+                const fullUrl = serverUrl.endsWith('/upload_with_fields') 
+                    ? serverUrl 
+                    : `${serverUrl.replace(/\/$/, '')}/upload_with_fields`;
+                
+                // 发送请求
+                const response = await fetch(fullUrl, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                clearInterval(progressInterval);
+                progressBar.style.width = '100%';
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP错误: ${response.status} ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                
+                // 显示结果
+                const resultText = `✅ 上传成功！
+接口地址: ${fullUrl}
+状态码: ${response.status} (${response.statusText})
+响应时间: ${new Date().toLocaleTimeString()}
+
+返回数据:
+用户名: ${data.username}
+年龄: ${data.age}
+文件名: ${data.file_name}
+文件大小: ${formatFileSize(data.file_size)} (${data.file_size} 字节)
+
+完整响应:
+${JSON.stringify(data, null, 2)}`;
+                
+                showResult(resultText, 'success');
+                
+            } catch (error) {
+                // 显示错误
+                const resultText = `❌ 上传失败！
+错误信息: ${error.message}
+接口地址: ${serverUrlInput.value}/upload_with_fields
+
+可能的原因:
+1. Rust服务器未运行
+2. 服务器地址或端口错误
+3. 跨域限制 (CORS)
+4. 网络连接问题
+
+解决方案:
+1. 确保Rust服务器已启动: cargo run
+2. 确认服务器地址和端口 (127.0.0.1:8080)
+3. 检查服务器控制台是否有错误信息
+4. 在Rust代码中添加CORS支持 (如果需要)`;
+                
+                showResult(resultText, 'error');
+                progressBar.style.backgroundColor = '#e74c3c';
+                
+                // 更新服务器状态
+                updateServerStatus('error', '上传失败，请检查服务器连接');
+            } finally {
+                // 恢复按钮状态
+                submitBtn.disabled = false;
+                submitBtn.textContent = '上传数据';
+                
+                // 3秒后隐藏进度条
+                setTimeout(() => {
+                    progressContainer.style.display = 'none';
+                    progressBar.style.backgroundColor = '#2ecc71';
+                }, 3000);
+            }
+        });
+        
+        // 重置表单
+        resetBtn.addEventListener('click', () => {
+            usernameInput.value = '';
+            ageInput.value = '25';
+            fileInput.value = '';
+            selectedFile = null;
+            
+            // 恢复文件拖放区域
+            fileDropArea.innerHTML = `
+                <div class="file-upload-icon">📁</div>
+                <p><strong>点击选择文件或拖拽文件到此处</strong></p>
+                <p>支持图片、文档、压缩包等各种文件类型</p>
+                <input type="file" id="fileInput" style="display: none;">
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <p>已选择文件: <span id="fileName"></span></p>
+                    <p>文件大小: <span id="fileSize"></span></p>
+                </div>
+            `;
+            
+            // 重新绑定事件
+            document.getElementById('fileInput').addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    handleFileSelect(e.target.files[0]);
+                }
+            });
+            
+            showResult('表单已重置，等待上传...', '');
+        });
+        
+        // 显示结果
+        function showResult(message, type) {
+            resultContent.textContent = message;
+            resultContent.className = 'result-content';
+            
+            if (type === 'success') {
+                resultContent.classList.add('success');
+            } else if (type === 'error') {
+                resultContent.classList.add('error');
+            }
+        }
+    </script>
+</body>
+</html>
