@@ -1,0 +1,110 @@
+### Base URL constant
+@base_url = http://127.0.0.1:8080
+
+### 接口：tasks
+GET {{base_url}}/computer HTTP/1.1
+Content-Type: application/json
+
+
+### 接口：tasks
+POST {{base_url}}/computer HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 1002,
+  "model": "MacBook Pro 15-inch 2026",
+  "brand": "Apple"
+}
+
+
+### 发送 HEAD 请求到任意路径
+HEAD http://localhost:8080/test-path
+Accept: application/json
+
+### 发送 HEAD 请求到另一个路径
+HEAD http://localhost:8080/api/users
+Accept: application/json
+
+### 发送 HEAD 请求到根路径
+HEAD http://localhost:8080/
+Accept: application/json
+
+
+### 接口：/hello/{name}
+GET {{base_url}}/hello/lime HTTP/1.1
+Content-Type: application/json
+
+
+
+### 计算两个数的最大公约数 (GCD) - POST 请求示例
+POST {{base_url}}/gcd
+Content-Type: application/x-www-form-urlencoded
+
+x=12&y=8
+
+### 预期成功响应
+# HTTP/1.1 200 OK
+# content-type: text/html; charset=utf-8
+# 
+# <h2>The Greatest Common Divisor of numbers </b>12</b> and <b>8</b> is </b>4</b></h2>
+
+### 零值错误请求示例
+POST http://localhost:8080/gcd
+Content-Type: application/x-www-form-urlencoded
+
+x=0&y=15
+
+### 预期错误响应
+# HTTP/1.1 400 Bad Request
+# content-type: text/html; charset=utf-8
+# 
+# <h2>Computing GCD with zero is boring...</h2>
+
+### 接口：/factorize/{number}
+GET {{base_url}}/factorize/13 HTTP/1.1
+Content-Type: application/json
+
+### 接口：/favicon
+GET {{base_url}}/favicon HTTP/1.1
+Content-Type: application/json
+
+
+### 接口：/redirect
+GET {{base_url}}/redirect HTTP/1.1
+Content-Type: application/json
+
+
+### 接口：/index
+GET {{base_url}}/index HTTP/1.1
+Content-Type: application/json
+
+### 接口：/echo
+GET {{base_url}}/echo HTTP/1.1
+Content-Type: application/json
+
+
+### 接口：/
+GET {{base_url}}/ HTTP/1.1
+Content-Type: application/json
+
+### 接口：/status
+GET {{base_url}}/status HTTP/1.1
+Content-Type: application/json
+
+### 接口：/list
+GET {{base_url}}/list HTTP/1.1
+Content-Type: application/json
+
+
+### 接口：/list/{val}
+GET {{base_url}}/list/5 HTTP/1.1
+Content-Type: application/json
+
+### 接口：/countries
+GET {{base_url}}/countries HTTP/1.1
+Content-Type: application/json
+
+
+### 接口：/something
+GET {{base_url}}/something HTTP/1.1
+Content-Type: application/json

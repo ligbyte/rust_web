@@ -1,0 +1,24 @@
+这是rust actix-web写的接口：
+
+#[actix_web::post("/gcd")]
+pub async fn post_gcd_handler(form: Form<GcdParameters>) -> impl Responder {
+    if form.x == 0 || form.y == 0 {
+        return HttpResponse::BadRequest()
+            .content_type(http::header::ContentType::html())
+            .body("<h2>Computing GCD with zero is boring...</h2>");
+    }
+
+    let response = format!(
+        "<h2>The Greatest Common Divisor of numbers </b>{}</b> and <b>{}</b> is </b>{}</b></h2>\n",
+        form.x,
+        form.y,
+        gcd(form.x, form.y)
+    );
+
+    HttpResponse::Ok()
+        .content_type(http::header::ContentType::html())
+        .body(response)
+}
+
+
+请在api.rest文件中给我写一个使用该接口的示例
