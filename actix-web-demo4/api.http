@@ -1,0 +1,39 @@
+### Base URL constant
+@base_url = http://127.0.0.1:8080
+
+### 接口：/
+GET {{base_url}}/ HTTP/1.1
+Content-Type: application/json
+
+
+
+### 接口：/todolist/entries
+GET {{base_url}}/todolist/entries HTTP/1.1
+Content-Type: application/json
+
+
+### 接口：/todolist/entries
+POST {{base_url}}/todolist/entries HTTP/1.1
+Content-Type: application/json
+
+{
+  "date": 20260309,
+  "title": "MacBook Pro 15-inch 2026"
+}
+
+
+### 接口：/todolist/entries/
+PUT  {{base_url}}/todolist/entries/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "date": 20260310,
+  "title": "lime"
+}
+
+### 接口：hello
+DELETE {{base_url}}/todolist/entries/1 HTTP/1.1 {{base_url}}/hello HTTP/1.1
+Content-Type: application/json
+
+
+
