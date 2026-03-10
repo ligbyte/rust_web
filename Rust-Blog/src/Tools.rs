@@ -1,22 +1,20 @@
 #[allow(warnings)]
 pub mod Jwt {
     use std::fs;
-    use crypto::digest::Digest;
-    use crypto::md5::Md5;
+    use md5;
     use crate::Model::model::Admin;
 
-    pub fn md5<S:Into<String>>(input: S) -> String {
-        let mut md5 = Md5::new();
-        md5.input_str(&input.into());
-        md5.result_str()
+    pub fn compute_md5<S:Into<String>>(input: S) -> String {
+        let input = input.into();
+        format!("{:x}", md5::compute(input.as_bytes()))
     }
 
     // 生成一个 jwt
     pub fn jwt(admin: Admin) -> String {
         let flag = "jwt";
-        let jwt = md5(format!("{}-{}-{}", flag, admin.username, admin.password));
+        let jwt = compute_md5(format!("{}-{}-{}", flag, admin.username, admin.password));
         let jwt = format!("{} 2022-1-14", jwt);
-        let jwt = md5(jwt);
+        let jwt = compute_md5(jwt);
         jwt
     }
 
@@ -25,7 +23,7 @@ pub mod Jwt {
         let jwt = jwt(admin);
 
         let path = "src/config/jwt.txt";
-        fs::write(path, jwt.clone());
+        fs::write(path, jwt.clone()).unwrap();
         jwt
     }
 
@@ -33,19 +31,18 @@ pub mod Jwt {
     pub fn isLogin(jwt: String) -> bool {
         let path = "src/config/jwt.txt";
 
-        let _jwt = fs::read_to_string(path).unwrap();
-        let _jwt = _jwt.trim();
-
-        if _jwt == jwt {
-            return true
+        match fs::read_to_string(path) {
+            Ok(_jwt) => {
+                let _jwt = _jwt.trim();
+                _jwt == jwt
+            },
+            Err(_) => false
         }
-
-        false
     }
 
     // 删除 jwt
     pub fn jwtDel() {
         let path = "src/config/jwt.txt";
-        fs::write(path, "");
+        fs::write(path, "").unwrap();
     }
 }

@@ -135,7 +135,7 @@ pub mod Impl {
 
     impl Config {
         pub fn new() -> Config {
-            let Json = fs::read_to_string("src/config/mysql.json").unwrap();
+            let Json = fs::read_to_string("src/config/config.json").unwrap();
             let Json = json::parse(&Json).unwrap();
             Config {
                 website: Website {

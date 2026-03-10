@@ -5,7 +5,7 @@ mod Tools;
 #[allow(warnings)]
 mod Controller;
 
-use actix_web::{App, HttpServer};
+use actix_web::{App, HttpServer, middleware};
 use crate::Model::model::Config;
 
 #[actix_web::main]
@@ -19,10 +19,11 @@ async fn main() -> std::io::Result<()> {
     );
 
     // 工作线程数
-    let workers = config.website.workers;
+    let workers = config.website.workers.parse().unwrap_or(1);
 
     HttpServer::new(|| {
         App::new()
+            .wrap(middleware::Logger::default())
             .service(Controller::page::index)
 
             // 管理员的操作
@@ -47,7 +48,7 @@ async fn main() -> std::io::Result<()> {
             .service(Controller::vistor::vistorAddFriend)
     })
     .bind(server)?
-    .workers(1)
+    .workers(workers)
     .run()
     .await
 }
