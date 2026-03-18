@@ -1,0 +1,23 @@
+{
+  "name": "spritesheet-to-gif",
+  "version": "1.0.0",
+  "description": "A free web tool that converts sprite sheets into animated GIFs",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -s .",
+    "build": "echo \"This is a static site. No build required. Just deploy the files as-is.\" && exit 0",
+    "preview": "npm run dev"
+  },
+  "keywords": [
+    "sprite",
+    "gif",
+    "animation",
+    "converter"
+  ],
+  "author": "Alan (collidingScopes)",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}

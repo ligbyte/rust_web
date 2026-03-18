@@ -1,0 +1,2 @@
+使用HttpResponse::Ok().body(fs::read_to_string("src/view/index.html").unwrap())   网页可以正常显示，
+但是使用  HttpResponse::Ok().body(fs::read_to_string("src/view/sprite2gif/index.html").unwrap())   网页不能正常显示，请帮我修改

@@ -256,6 +256,6 @@ pub mod page {
 
     #[get("/")]
     pub async fn index() -> impl actix_web::Responder {
-        HttpResponse::Ok().body(fs::read_to_string("src/static/index.html").unwrap())
+        HttpResponse::Ok().body(fs::read_to_string("src/view/spritesheet-to-gif/index.html").unwrap())
     }
 }
