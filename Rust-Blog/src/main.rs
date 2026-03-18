@@ -24,7 +24,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .wrap(middleware::Logger::default())
-            .service(Controller::page::index)
+            // 移除原来的 index 服务，改用静态文件服务
 
             // 管理员的操作
             .service(Controller::admin::adminLogin)
@@ -46,6 +46,9 @@ async fn main() -> std::io::Result<()> {
             // 访客能进行的操作
             .service(Controller::vistor::vistorAddCommit)
             .service(Controller::vistor::vistorAddFriend)
+            
+            // 提供静态文件服务 - 为src/view/spritesheet-to-gif目录下的所有静态资源提供服务
+            .service(actix_files::Files::new("/", "src/view/spritesheet-to-gif").index_file("index.html"))
     })
     .bind(server)?
     .workers(workers)
